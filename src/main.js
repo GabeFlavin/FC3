@@ -27,29 +27,34 @@ tl.from('.title', {
 })
 .from(splitText.words, {
   opacity: 0,
-  y: 150,
-  duration: 0.8,
-  stagger: 0.15,
-  ease: 'power2.out'
+  rotation: -40,
+  duration: .5,
+  stagger: 0.25,
+  ease: 'elastic.out(1,0.3)'
 })
-.to(splitText.words, {
+.from(splitText.words, {
   opacity: 0,
-  y: -50,
-  duration: 0.8,
-  stagger: 0.05,
-  delay: 2,
-  ease: 'power2.inOut'
+  scale: .8,
+  delay: 1,
+  duration: 2,
+  stagger: 0.25,
+  ease: 'power1.in'
 })
 .to('.opening', {
   opacity: 0,
   duration: 0,
-  delay: 2,
+  delay: 1,
   ease: 'power2.inOut',
   onComplete: () => {
     document.querySelector('.opening').style.display = 'none';
   }
+})
+.to('.title', {
+  duration: 23,
+  scale: .85,
+  ease: 'power2.Out',
+  delay: -2
 });
-
 
 // create a scrolltrigger animation for the hero section that will trigger when the user scrolls past the hero section
 gsap.registerPlugin(ScrollTrigger); // register the ScrollTrigger plugin    
