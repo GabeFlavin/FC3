@@ -8,8 +8,89 @@
   box-sizing: border-box;
 }
 
+/* import BalladofDwightFrye.ttf */
+@font-face {
+  font-family: 'BalladofDwightFrye';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/BalladofDwightFrye.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ClashDisplay-Extralight';
+  src: url('../fonts/ClashDisplay-Extralight.woff2') format('woff2'),
+       url('../fonts/ClashDisplay-Extralight.woff') format('woff'),
+       url('../fonts/ClashDisplay-Extralight.ttf') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ClashDisplay-Light';
+  src: url('../fonts/ClashDisplay-Light.woff2') format('woff2'),
+       url('../fonts/ClashDisplay-Light.woff') format('woff'),
+       url('../fonts/ClashDisplay-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ClashDisplay-Regular';
+  src: url('../fonts/ClashDisplay-Regular.woff2') format('woff2'),
+       url('../fonts/ClashDisplay-Regular.woff') format('woff'),
+       url('../fonts/ClashDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ClashDisplay-Medium';
+  src: url('../fonts/ClashDisplay-Medium.woff2') format('woff2'),
+       url('../fonts/ClashDisplay-Medium.woff') format('woff'),
+       url('../fonts/ClashDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ClashDisplay-Semibold';
+  src: url('../fonts/ClashDisplay-Semibold.woff2') format('woff2'),
+       url('../fonts/ClashDisplay-Semibold.woff') format('woff'),
+       url('../fonts/ClashDisplay-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ClashDisplay-Bold';
+  src: url('../fonts/ClashDisplay-Bold.woff2') format('woff2'),
+       url('../fonts/ClashDisplay-Bold.woff') format('woff'),
+       url('../fonts/ClashDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 700.0;
+*
+* available axes:
+'wght' (range from 200.0 to 700.0
+*/
+@font-face {
+  font-family: 'ClashDisplay-Variable';
+  src: url('../fonts/ClashDisplay-Variable.woff2') format('woff2'),
+       url('../fonts/ClashDisplay-Variable.woff') format('woff'),
+       url('../fonts/ClashDisplay-Variable.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'ClashDisplay-Variable', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -20,9 +101,10 @@
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   --padding-large: clamp(1.4375rem, -0.7543918918918919rem + 11.95945945945946vw, 15.5rem);
+  --h3--font-size: clamp(1.5rem, -0.7432432432432432rem + 3.216216216216218vw, 11.875rem);
   --h1--font-size: clamp(1.5rem, -0.7432432432432432rem + 11.216216216216218vw, 11.875rem);
   --h1--lead--font-size: clamp(1.5rem, -0.7432432432432432rem + 19.216216216216218vw, 11.875rem);
-  --p--font-size: clamp(0.9375rem, 0.8293918918918919rem + 0.7405405405405406vw, 2.4375rem);
+  --p--font-size: clamp(0.9375rem, 0.8293918918918919rem + 0.6405405405405406vw, 2.4375rem);
 }
 
 /* Hide all content initially */
@@ -75,7 +157,42 @@ section {
   padding: 0;
   margin: 0;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100svh;
+  position: relative;
+  z-index: 1;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  position: relative;
+  align-items: stretch;
+}
+
+.col{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+}
+
+.red{
+  background-color: #db1111; 
+}
+
+.padding-large{
+  padding: var(--padding-large);
+}
+
+.bottom{
+  z-index: 0;
 }
 
 .hero{
@@ -86,15 +203,69 @@ section {
   margin: 0 auto;
   padding: 0;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100svh;
   position: relative;
-  background-color: #2c0605;
+  background-color: #997fff;
 }
+.btn-start{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: #fff5f5;
+  font-size: 3rem;
+  z-index: 999;
+}
+
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 0;
+  color: #ffffff;
+  background-color: #db1111;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  x-border: #f9f9f9 2px solid;
+}
+
 h1{
   font-size: var(--h1--font-size);
   font-weight: 700;
   color: #ffffff;
   margin: 0;
+}
+
+h3{
+  font-size: var(--h3--font-size);
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+}
+
+p{
+  font-size: var(--p--font-size);
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+}
+
+.opening-copy{
+  x-opacity: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #f9f9f9;
 }
 
 .opening{
@@ -108,11 +279,8 @@ h1{
   align-items: center;
   flex-direction: column;
   z-index: 90;
-  background-color: #111;
-  color: #f9f9f9;
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
+  background-color: #972b2b;
+  font-family: 'BalladofDwightFrye';
 }
 
 .title{
@@ -138,6 +306,7 @@ h1{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  
 }
 .video-1 video{
   width: 100%;
@@ -146,23 +315,6 @@ h1{
   opacity: 0.8;
 } 
 
-
-p{
-  font-size: var(--p--font-size);
-  font-weight: 400;
-  color: #ffffff;
-  margin: 0;
-}
-
-.container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  background-color: #2c0605;    
+.max-width{
+  max-width: 1300px;
 }
