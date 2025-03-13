@@ -23,17 +23,26 @@ function initHero() {
 
   */
   gsap.registerPlugin(ScrollTrigger);
+
+  // Update ScrollTrigger when Lenis scrolls
+  lenis.on('scroll', ScrollTrigger.update);
+
+  // Add Lenis scroll to GSAP ticker
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
   gsap.to('.hero', {
     scrollTrigger: {
       trigger: '.hero',
       start: 'top top',
       end: 'bottom top',
-      scrub: true,
+      scrub: 1.5,
       markers: false,
     },
-    y: 600,
+    y: 300,
     opacity: 0,
-    duration: 1
+    ease: "power2.inOut"
   });
 
 

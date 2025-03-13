@@ -5,7 +5,6 @@
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 /* import BalladofDwightFrye.ttf */
@@ -16,60 +15,13 @@
   font-display: swap;
   src: url('../fonts/BalladofDwightFrye.ttf') format('truetype');
 }
-
+/* import Bangers-Regular.ttf */
 @font-face {
-  font-family: 'ClashDisplay-Extralight';
-  src: url('../fonts/ClashDisplay-Extralight.woff2') format('woff2'),
-       url('../fonts/ClashDisplay-Extralight.woff') format('woff'),
-       url('../fonts/ClashDisplay-Extralight.ttf') format('truetype');
-  font-weight: 200;
-  font-display: swap;
+  font-family: 'Bangers-Regular';
   font-style: normal;
-}
-@font-face {
-  font-family: 'ClashDisplay-Light';
-  src: url('../fonts/ClashDisplay-Light.woff2') format('woff2'),
-       url('../fonts/ClashDisplay-Light.woff') format('woff'),
-       url('../fonts/ClashDisplay-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'ClashDisplay-Regular';
-  src: url('../fonts/ClashDisplay-Regular.woff2') format('woff2'),
-       url('../fonts/ClashDisplay-Regular.woff') format('woff'),
-       url('../fonts/ClashDisplay-Regular.ttf') format('truetype');
   font-weight: 400;
   font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'ClashDisplay-Medium';
-  src: url('../fonts/ClashDisplay-Medium.woff2') format('woff2'),
-       url('../fonts/ClashDisplay-Medium.woff') format('woff'),
-       url('../fonts/ClashDisplay-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'ClashDisplay-Semibold';
-  src: url('../fonts/ClashDisplay-Semibold.woff2') format('woff2'),
-       url('../fonts/ClashDisplay-Semibold.woff') format('woff'),
-       url('../fonts/ClashDisplay-Semibold.ttf') format('truetype');
-  font-weight: 600;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'ClashDisplay-Bold';
-  src: url('../fonts/ClashDisplay-Bold.woff2') format('woff2'),
-       url('../fonts/ClashDisplay-Bold.woff') format('woff'),
-       url('../fonts/ClashDisplay-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
+  src: url('../fonts/Bangers-Regular.ttf') format('truetype');
 }
 /**
 * This is a variable font
@@ -90,7 +42,7 @@
 }
 
 :root {
-  font-family: 'ClashDisplay-Variable', sans-serif;
+  font-family: 'Bangers-Regular', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -101,6 +53,7 @@
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   --padding-large: clamp(1.4375rem, -0.7543918918918919rem + 11.95945945945946vw, 15.5rem);
+  --h4--font-size: clamp(1.5rem, -0.7432432432432432rem + 1.216216216216218vw, 11.875rem);
   --h3--font-size: clamp(1.5rem, -0.7432432432432432rem + 3.216216216216218vw, 11.875rem);
   --h1--font-size: clamp(1.5rem, -0.7432432432432432rem + 11.216216216216218vw, 11.875rem);
   --h1--lead--font-size: clamp(1.5rem, -0.7432432432432432rem + 19.216216216216218vw, 11.875rem);
@@ -127,6 +80,11 @@ html {
   z-transition: opacity .3s cubic-bezier(0.950, 0.050, 0.795, 0.035);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
 
 a {
   font-weight: 500;
@@ -154,23 +112,45 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0;
   margin: 0;
   width: 100%;
   min-height: 100svh;
   position: relative;
   z-index: 1;
+  background-color: #460B09;
+}
+
+navigation{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  width: 90px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+}
+
+navigation img{
+  width: 100%;
+  height: auto;   
 }
 
 .row{
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: left;
   margin: 0 auto;
   padding: 0;
   width: 100%;
   position: relative;
   align-items: stretch;
+  z-index: 1;
+  padding-bottom: var(--padding-large);
+  padding-left: var(--padding-large);
+  padding-right: var(--padding-large);
 }
 
 .col{
@@ -194,7 +174,24 @@ section {
 .bottom{
   z-index: 0;
 }
-
+.background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: -1;
+  background-color: #460B09;
+}
+.background img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .hero{
   display: flex;
   flex-direction: column;
@@ -253,6 +250,13 @@ h3{
   margin: 0;
 }
 
+h4{
+  font-size: var(--h4--font-size);
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+}
+
 p{
   font-size: var(--p--font-size);
   font-weight: 400;
@@ -297,6 +301,23 @@ p{
   object-fit: fill;
 } 
 
+.distressed{
+  background-image: url(/img/video-overlay.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 0;
+}
+
 .video-1{
   position: absolute;
   z-index: 0;
@@ -317,4 +338,181 @@ p{
 
 .max-width{
   max-width: 1300px;
+}
+
+.top{
+  z-index: 3;
+}
+
+.section-detail{
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 2rem 2rem 2rem;
+  max-width: 600px;
+  width: 30%;
+  position: relative;
+  background-color: #3F1111;
+  z-index: 3;
+  position: absolute;
+  bottom:5%;
+  left:5%;
+  transform: rotate(-4deg);
+}
+
+.section-detail .float-header{
+  position: absolute;
+  top: -2vw;
+  left: 20px;
+  width: 90%;
+  z-index: 1; 
+}
+
+.section-detail .float-header img{
+  width: 100%;
+  height: auto;
+}
+
+.section-detail h3{
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f9f9f9;
+  margin-bottom: .8rem;
+}
+
+.section-detail p{
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #f9f9f9;
+} 
+
+
+.movie-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  top: -3rem;
+  position: relative;
+  z-index: 3;
+}
+.float-header2{
+  position: relative;
+  margin: auto;
+  top: 3.8em;
+  z-index: 0;
+  text-align: center;
+}
+
+.float-header2 h2{
+  font-family: 'Balladofdwightfrye';
+  font-size: 5rem;
+  line-height: 2;
+  background: linear-gradient(180deg, #e60000, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #460B09; /* fallback */
+  margin: 0;
+  padding: 0;
+}
+
+.float-header2 h4{
+
+  font-family: 'Balladofdwightfrye';
+  font-size: 1.5rem;
+  line-height: 3;
+  background: linear-gradient(180deg, #e60000, #460B09);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #460B09; /* fallback */
+}
+
+.movie-container .movie{
+  width: 100%;
+  max-width: 1100px;
+  height: autox;
+  aspect-ratio: 16/9;
+  background-color: red;
+  z-index: 2;
+}
+
+.ballad{
+  font-family: 'BalladofDwightFrye';
+  font-size: 1rem;
+  color: #B73131;
+} 
+
+.credits{
+  padding: 2rem;
+}
+
+.credits h4{
+  font-family: "ClashDisplay-Variable";
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .2rem;
+  color: #AF3E3A;
+}
+
+.cast-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem 4rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: top;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 3;
+}
+
+.cast-container .cast{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: top;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  position: relative;
+  z-index: 1;
+}
+
+.cast-container .cast .thumbnail{
+  width: 100%;
+  height: 300px;
+  position: relative; 
+  z-index: 1;
+}
+.cast-container .cast .thumbnail img{
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  min-height: 100%;
+} 
+
+.cast-container .cast .detail{
+  position: absolute;
+  bottom: -60px;
+  left: .5vw;
+  margin: auto;
+  padding: 1.3rem;
+  width: 100%;
+  max-width: 200px;
+  background-color: #171617;
+  height: auto;
+  z-index: 2;
+  transform: rotate(-4deg);
+}
+
+.cast-container .cast .detail p{
+  font-size: 1rem;
+  font-weight: 500;
 }
