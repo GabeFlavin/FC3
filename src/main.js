@@ -3,7 +3,10 @@ import 'lenis/dist/lenis.css';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import jQuery from 'jquery';
+import './photogal.js';
+import './nav-fc.js';
 const $ = jQuery;
+
 
 
 // Initialize Lenis
@@ -21,7 +24,7 @@ function initHero() {
   ScrollTrigger for hero section
 
 
-  */
+  
   gsap.registerPlugin(ScrollTrigger);
 
   // Update ScrollTrigger when Lenis scrolls
@@ -44,7 +47,7 @@ function initHero() {
     opacity: 0,
     ease: "power2.inOut"
   });
-
+*/
 
   const heroVideo = document.querySelector('.hero video');
   
