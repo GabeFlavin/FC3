@@ -6,16 +6,17 @@
     document.documentElement.classList.add('loading-active');
     
     // Create curtain element
-    const curtain = document.createElement('div');
-    curtain.id = 'loading-curtain';
+    //const curtain = document.createElement('div');
+    //curtain.id = 'loading-curtain';
+    //curtain.innerHTML = '<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">loading</div>';
     
     // Insert it as the first child in the body (or create body if needed)
     if (!document.body) {
       document.addEventListener('DOMContentLoaded', function() {
-        document.body.insertBefore(curtain, document.body.firstChild);
+        //document.body.insertBefore(curtain, document.body.firstChild);
       });
     } else {
-      document.body.insertBefore(curtain, document.body.firstChild);
+      //document.body.insertBefore(curtain, document.body.firstChild);
     }
   }
   

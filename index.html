@@ -11,6 +11,8 @@
    
   </head>
   <body>
+    <!-- loading curtain -->
+    <div id="loading-curtain">FC LOADING...</div>
     <!--Photogallery overlay-->
     <div class="large-image-container" id="largeImageContainer"><img src="" alt="Large Image" id="largeImage"></div>
     <!-- end photogallery -->
@@ -18,25 +20,27 @@
     <div id="menuToggle"></div>
 
     <nav id="mainNav">
-      <ul>
-          <li><a class="navLink" href="#overview">Overview</a></li>
-          <li><a class="navLink" href="#fc1">Facecrusher 1</a></li>
-          <li><a class="navLink" href="#fc2">Facecrusher 2</a></li>
-          <li><a class="navLink" href="#cast">The Cast</a></li>
-          <li><a class="navLink" href="#story">Facecrusher Who?</a></li>
-          <li><a class="navLink" href="#crew">The crew</a></li>
-          <li><a class="navLink" href="#fc3">Facecrusher 3!</a></li>
-      </ul>
+      <a class="navLink" href="#overview">Overview</a>
+      <a class="navLink" href="#fc1">Facecrusher Movies</a>
+      <a class="navLink" href="#cast">The Cast</a>
+      <a class="navLink" href="#qa">Q & A</a>
+      <a class="navLink" href="#behind">behind-the-scenes</a>
+      <a class="navLink" href="#posters">Posters!</a>
     </nav>
 
-    <section class="bottom">
+
+    <div class="opening"><h4 class="opening-copy">He smashes them in the face with random stuff.</h4></div>
+
+
+    <section>
       <div class="hero">
         
-        <div class="opening"><h4 class="opening-copy">He smashes them in the face with random stuff.</h4></div>
         <div class="title">
-          <img src="/img/FACE.png"/>
-          <img src="/img/Crusher.png"/>
+          <img class="face" src="/img/FACE.webp"/>
+          <img class="crusher" src="/img/Crusher.webp"/>
+          <img class="series" src="/img/theseries.webp"/>
         </div>
+        <a href="" class="start">Start Crushing</a>
         <div class="video-1">
           <video autoplay loop muted playsinline>
             <source src="/clips/flame.mp4" type="video/mp4" />
@@ -44,152 +48,222 @@
         </div>
         
       </div>
+      <div class="distressed two"></div>
     </section>
+
     <section id="overview">
 
-      <div class="section-detail">
-        <div class="float-header"><img src="/img/header-Overview.png"></div>
+      <div class="overview">
+        <div class="section-header float"><img src="/img/header-Overview.png"></div>
         <h3>The Facecrusher Series</h3>
         <p>The Facecrusher series started 2019 by Luke St. Germaine and has terrorized the indy horror festival scene since. shown all over the world, Facecrusher lives on to Crush again in 2025 in FC3 - enter the crushverse.</p>
       </div>
-      <div class="distressed"></div>
-      <div class="background">
-        <img src="/img/gallery1/fc-1.jpg"/>
+      
+      <div class="video-1">
+        <video autoplay loop muted playsinline>
+          <source src="/clips/fc-smash_long.mp4" type="video/mp4" />
+        </video>
       </div>
+      <div class="distressed"></div>
     </section>
+
+
+  
     <section id="fc1">
-      <div class="movie-container">
-        
-        <div class="float-header2"><h4>The movies</h4><h2>Facecrusher 1</h2></div>
-        <div class="movie"><iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/xrHCMrFb9Gs?si=O4nAI-fz6nkX_Zik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-        <div class="credits"><h6>Directed, Produced & Written by Luke St. Germaine</h6></div>
+      <div class="row">
+      <div class="section-header center"><h4>Two Horror Shorts</h4><h2>The FC Movies</h2></div>
+       <div class="movie-container">
+        <div class="movie"><iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/xrHCMrFb9Gs?si=O4nAI-fz6nkX_Zik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div class="credits"><h6>6 minute watch time</h6></div></div>
+
+        <div class="movie"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/y026fGoZBCg?si=7vSZs6Czpc3r11bM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div class="credits"><h6>6 minute watch time</h6></div></div>
+        </div>
       </div>
       <div class="distressed"></div>
       <div class="background">
-        <!--img src="/img/gallery1/fc-1.jpg"-->
+        <img src="/img/gallery1/fc-2.jpg">
       </div>
     </section>
-    <section id="fc2">
-      <div class="movie-container">
+
+
+
+    <section id="qa">
+      
+      <div class="row center">
         
-        <div class="float-header2"><h4>The movies</h4><h2>Facecrusher 2</h2></div>
-        <div class="movie"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/y026fGoZBCg?si=7vSZs6Czpc3r11bM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-        <div class="credits"><h6>Directed, Produced & Written by Luke St. Germaine</h6></div>
+        <div class="section-header center"><h4>Director Q & A</h4><h2>FC Questions</h2></div>
+
+        <div class="container qa-container center">
+          <div class="qa">
+            <div class="question">
+              <h3>What is the Facecrusher?</h3>
+            </div>
+            <div class="answer">
+              <p>Facecrusher is a horror comedy series that started in 2019. It follows the adventures Facecrusher is a horror comedy series that started in 2019. It follows the adventures Facecrusher is a horror comedy series that started in 2019. It follows the adventures Facecrusher is a horror comedy series that started in 2019. It follows the adventures</p>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="distressed"></div>
-      <div class="background">
-        <!--img src="/img/gallery1/fc-1.jpg"-->
+      <div class="distressed four"></div>
+      <div class="background left">
+        <img src="/img/backgrounds/linsey-bkg.webp">
       </div>
     </section>
+
+
     <section id="cast">
       
       <div class="row">
         
-        <div class="float-header2"><h4>Credits</h4><h2> Facecrusher Cast</h2></div>
+        <div class="section-header center"><h4>Credits</h4><h2>FC Cast</h2></div>
 
-        <div class="cast-container">
-          <div class="cast">
-            <div class="thumbnail"><img src="/img/cast/luke.jpg" /></div>
+        <div class="container">
+         
+          <div class="thumbnail-con">
             <div class="detail">
-              <h4>Luke St. Germaine</h4>
-              <p>Director, Writer, Producer</p>
+              <h4>Eric Rodenhiser</h4>
+              <p>Everett</p>
               <div><a href="instagram">in</a>   <a href="instagram">in</a> <a href="instagram">in</a></div>
             </div>
+            <div class="thumbnail"><div class="zoom bottom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><div class="photo-overlay-blood-1"><img src="/img/backgrounds/photo-overlay-blood-1.webp" alt=""></div><img src="/img/cast/eric.webp" /></div>
           </div>
+
+          <div class="thumbnail-con">
+            <div class="detail">
+              <h4>Linsey Wood</h4>
+              <p>Sharon</p>
+              <div><a href="instagram">in</a>   <a href="instagram">in</a> <a href="instagram">in</a></div>
+            </div>
+            <div class="thumbnail"><div class="zoom bottom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><div class="photo-overlay-blood-1"><img src="/img/backgrounds/photo-overlay-blood-3.webp" alt=""></div><img src="/img/cast/linsey.webp" /></div>
+          </div>
+
+          <div class="thumbnail-con">
+            <div class="detail">
+              <h4>Gabe Flavin</h4>
+              <p>Facecrusher</p>
+              <div><a href="instagram">in</a></div>
+            </div>
+            <div class="thumbnail"><div class="zoom bottom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><img src="/img/cast/gabe4.webp" /></div>
+          </div>
+
+          <div class="thumbnail-con">
+            <div class="detail">
+              <h4>Sheri Lee</h4>
+              <p>Lynn</p>
+              <div><a href="instagram">in</a>   <a href="instagram">in</a> <a href="instagram">in</a></div>
+            </div>
+            <div class="thumbnail"><div class="zoom bottom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><div class="photo-overlay-blood-1"><img src="/img/backgrounds/photo-overlay-blood-2.webp" alt=""></div><img src="/img/cast/sheri.webp" /></div>
+          </div>
+
+          <div class="thumbnail-con">
+            <div class="detail">
+              <h4>Michaela Hillier</h4>
+              <p>Beverly & Hiker 1</p>
+              <div><a href="instagram">in</a>   <a href="instagram">in</a> <a href="instagram">in</a></div>
+            </div>
+            <div class="thumbnail"><div class="zoom bottom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><div class="photo-overlay-blood-1"><img src="/img/backgrounds/photo-overlay-blood-2.webp" alt=""></div><img src="/img/cast/michaela.webp" /></div>
+          </div>
+
+          <div class="thumbnail-con">
+            <div class="detail">
+              <h4>Jay Connolly</h4>
+              <p>Hiker 2</p>
+              <div><a href="instagram">in</a><a href="instagram">in</a> <a href="instagram">in</a></div>
+            </div>
+            <div class="thumbnail"><div class="zoom bottom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><div class="photo-overlay-blood-1"><img src="/img/backgrounds/photo-overlay-blood-1.webp" alt=""></div><img src="/img/cast/jay.webp" /></div>
+          </div>
+
+          <div class="thumbnail-con">
+            <div class="detail">
+              <h4>Nate Cullinan</h4>
+              <p>Vagabond 1</p>
+            </div>
+            <div class="thumbnail"><div class="zoom bottom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><div class="photo-overlay-blood-1"><img src="/img/backgrounds/photo-overlay-blood-2.webp" alt=""></div><img src="/img/cast/nate.webp" /></div>
+          </div>
+
+          <div class="thumbnail-con">
+            <div class="detail">
+              <h4>Frank Tenaglia</h4>
+              <p>Vagabond 2</p>
+            </div>
+            <div class="thumbnail"><div class="zoom bottom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><div class="photo-overlay-blood-1"><img src="/img/backgrounds/photo-overlay-blood-3.webp" alt=""></div><img src="/img/cast/frank.webp" /></div>
+          </div>
+
+
         </div>
       </div>
       <div class="distressed"></div>
-      <div class="background">
-        <!--img src="/img/gallery1/fc-1.jpg"-->
+      <div class="background right">
+        <img src="/img/backgrounds/wax.webp">
       </div>
     </section>
 
-    <section>
+
+    <section id="behind">
+      
+      <div class="section-header center float"><h4 class="white">Behind the Scenes</h4></div>
+
+      
+        <div class="drag-container">
+         
+          
+          <div class="dragthumb"><div class="photo-overlay"><img src="/img/backgrounds/photo-overlay.webp" alt=""></div><div class="thumbnail"><div class="zoom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><img src="/img/bts/1.webp" alt=""></div></div>
+
+          <div class="dragthumb"><div class="photo-overlay"><img src="/img/backgrounds/photo-overlay.webp" alt=""></div><div class="thumbnail"><div class="zoom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><img src="/img/bts/2.webp" alt=""></div></div>
+
+          <div class="dragthumb"><div class="photo-overlay"><img src="/img/backgrounds/photo-overlay.webp" alt=""></div><div class="thumbnail"><div class="zoom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><img src="/img/bts/3.webp" alt=""></div></div>
+
+          
+
+          <div class="dragthumb"><div class="photo-overlay"><img src="/img/backgrounds/photo-overlay.webp" alt=""></div><div class="thumbnail"><div class="zoom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><img src="/img/bts/7.webp" alt=""></div></div>
+
+          <div class="dragthumb"><div class="photo-overlay"><img src="/img/backgrounds/photo-overlay.webp" alt=""></div><div class="thumbnail"><div class="zoom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><img src="/img/bts/6.webp" alt=""></div></div>
+
+          <div class="dragthumb"><div class="photo-overlay"><img src="/img/backgrounds/photo-overlay.webp" alt=""></div><div class="thumbnail"><div class="zoom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><img src="/img/bts/10.webp" alt=""></div></div>
+
+          <div class="dragthumb"><div class="photo-overlay"><img src="/img/backgrounds/photo-overlay.webp" alt=""></div><div class="thumbnail"><div class="zoom"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21v-6h2v2.6l3.1-3.1l1.4 1.4L6.4 19H9v2zM15.9 9.5l-1.4-1.4L17.6 5H15V3h6v6h-2V6.4z"/></svg></div><img src="/img/bts/9.webp" alt=""></div></div>
+          
+        </div>
+      
+      <div class="distressed three"></div>
+      <div class="background clear">
+        <img src="/img/backgrounds/stonefloor.webp">
+      </div>
+
+
+    </section>
+
+
+
+
+    <section id="posters">
+      
       <div class="row">
         
-        <div class="float-header2"><h4>On set</h4><h2>Behind the scenes</h2></div>
+        <div class="section-header center"><h4>Posters</h4><h2>FC Movie Posters</h2></div>
 
-        <div class="cast-container">
-          <div class="cast">
-            <div class="thumbnail"><img src="/img/cast/luke.jpg"/></div>
+        <div class="container">
+         
+          <div class="image-con">
+            <a href="/img/posters/FC-one.webp" ><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from All by undefined - undefined --><path fill="currentColor" d="M6.5 19q-1.871 0-3.185-1.306Q2 16.39 2 14.517q0-1.719 1.175-3.051t2.921-1.431q.252-1.858 1.865-3.416T11.5 5.062q.402 0 .701.299t.299.7v7.281l2.062-2.05l.707.708L12 15.27L8.73 12l.709-.708l2.061 2.05v-7.28q-1.88.08-3.19 1.635T7 11h-.5q-1.45 0-2.475 1.025T3 14.5t1.025 2.475T6.5 18h12q1.05 0 1.775-.725T21 15.5t-.725-1.775T18.5 13H17v-2q0-1.239-.55-2.276T15 7V5.81q1.408.779 2.204 2.174T18 11v1h.616q1.436.046 2.41 1.055T22 15.5q0 1.471-1.014 2.486Q19.97 19 18.5 19zm5.5-7.47"/></svg></div><img src="/img/posters/FC-one.webp" /></a>
           </div>
-          <div class="cast">
-            <div class="thumbnail"><img src="/img/cast/luke.jpg"/></div>
+
+          <div class="image-con">
+            <a href="/img/posters/FC-two.webp" target="_blank"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from All by undefined - undefined --><path fill="currentColor" d="M6.5 19q-1.871 0-3.185-1.306Q2 16.39 2 14.517q0-1.719 1.175-3.051t2.921-1.431q.252-1.858 1.865-3.416T11.5 5.062q.402 0 .701.299t.299.7v7.281l2.062-2.05l.707.708L12 15.27L8.73 12l.709-.708l2.061 2.05v-7.28q-1.88.08-3.19 1.635T7 11h-.5q-1.45 0-2.475 1.025T3 14.5t1.025 2.475T6.5 18h12q1.05 0 1.775-.725T21 15.5t-.725-1.775T18.5 13H17v-2q0-1.239-.55-2.276T15 7V5.81q1.408.779 2.204 2.174T18 11v1h.616q1.436.046 2.41 1.055T22 15.5q0 1.471-1.014 2.486Q19.97 19 18.5 19zm5.5-7.47"/></svg></div><img src="/img/posters/FC-two.webp" /></a>
           </div>
-          <div class="cast">
-            <div class="thumbnail"><img src="/img/cast/luke.jpg"/></div>
+
+          <div class="image-con">
+            <a href="/img/posters/FC-two-b.webp" ><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from All by undefined - undefined --><path fill="currentColor" d="M6.5 19q-1.871 0-3.185-1.306Q2 16.39 2 14.517q0-1.719 1.175-3.051t2.921-1.431q.252-1.858 1.865-3.416T11.5 5.062q.402 0 .701.299t.299.7v7.281l2.062-2.05l.707.708L12 15.27L8.73 12l.709-.708l2.061 2.05v-7.28q-1.88.08-3.19 1.635T7 11h-.5q-1.45 0-2.475 1.025T3 14.5t1.025 2.475T6.5 18h12q1.05 0 1.775-.725T21 15.5t-.725-1.775T18.5 13H17v-2q0-1.239-.55-2.276T15 7V5.81q1.408.779 2.204 2.174T18 11v1h.616q1.436.046 2.41 1.055T22 15.5q0 1.471-1.014 2.486Q19.97 19 18.5 19zm5.5-7.47"/></svg></div><img src="/img/posters/FC-two-b.webp" /></a>
           </div>
-          <div class="cast">
-            <div class="thumbnail"><img src="/img/cast/luke.jpg"/></div>
-          </div>
-          <div class="cast">
-            <div class="thumbnail"><img src="/img/cast/luke.jpg"/></div>
-          </div>
-          <div class="cast">
-            <div class="thumbnail"><img src="/img/cast/luke.jpg"/></div>
-          </div>
-          <div class="cast">
-            <div class="thumbnail"><img src="/img/cast/luke.jpg"/></div>
-          </div>
+
         </div>
       </div>
       <div class="distressed"></div>
       <div class="background">
-        <!--img src="/img/gallery1/fc-1.jpg"-->
+        <img src="/img//backgrounds/fc-log-bkg.webp">
       </div>
     </section>
 
-    <section id="story">
-      <div class="row">
-        
-        <div class="section-header"><h4>The story</h4><h2>Who is the Facecrusher?</h2></div>
-
-        <div class="cast-container">
-            <div></div>
-        </div>
-
-      </div>
-      <div class="distressed"></div>
-      <div class="background">
-        <!--img src="/img/gallery1/fc-1.jpg"-->
-      </div>
-    </section>
-
-
-    <section id="crew">
-      <div class="row">
-        
-        <div class="section-header"><h4>Behind the scenes</h4><h2>The FC Crew</h2></div>
-
-        <div class="cast-container">
-            <div>Larual</div>
-            <div>Larual</div>
-            <div>Larual</div>
-            <div>Larual</div>
-        </div>
-
-      </div>
-      <div class="distressed"></div>
-      <div class="background">
-        <!--img src="/img/gallery1/fc-1.jpg"-->
-      </div>
-    </section>
-
-    <section id="fc3">
-      <div class="row">
-        
-        <div class="section-header"><h4>Coming Soon</h4><h2>Facecrusher 3!</h2></div>
-
-        <div class="cast-container">
-            <div>Be part of the film!</div>
-        </div>
-
-      </div>
-      <div class="distressed"></div>
-      <div class="background">
-        <!--img src="/img/gallery1/fc-1.jpg"-->
-      </div>
-    </section>
     
     <script src="https://unpkg.com/split-type"></script>
     <script type="module" src="/src/main.js"></script>

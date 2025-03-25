@@ -1,5 +1,10 @@
 import { gsap } from "gsap";
+
 document.addEventListener("DOMContentLoaded", function () {
+
+
+    
+
     const menuToggle = document.getElementById("menuToggle");
     const mainNav = document.getElementById("mainNav");
     let isMenuOpen = false;
@@ -67,4 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
             isMenuOpen = false;
         }
     });
+
+    
 });

@@ -56,7 +56,12 @@ function initHero() {
   heroVideo.play();
 tl.play();
   const splitText = new SplitType('.opening-copy');
-
+  // animation for openingTargetNav
+  gsap.set('.start', {scale: 0});
+  gsap.set('.face', {scale: 0});
+  gsap.set('.crusher', {scale: 0});
+  gsap.set('.series', {opacity: 0});
+  gsap.set('.hero video', {opacity: 0});
   tl.from(splitText.words, {
     opacity: 0,
     delay: 3,
@@ -73,7 +78,33 @@ tl.play();
     onComplete: () => {
       document.querySelector('.opening').style.display = 'none';
     }
-  });
+  })
+  .to('.face', {
+    scale: 1,
+    duration: .5,
+    ease: 'bounce.out',
+  })
+  .to('.crusher', {
+    scale: 1,
+    duration: 0.5,
+    ease: 'bounce.out',
+  })
+  .to('.series', {
+    delay: .5,
+    opacity: 1,
+    duration: 1,
+    ease: 'power4.out',
+  })
+  .to('.hero video', {
+    opacity: 1,
+    duration: 2,
+    ease: 'power2.out',
+  })
+  .to('.start', {
+    scale: 1,
+    duration: .9,
+    ease: 'power2.out',
+  },"+=2");
 }
 if ($('.hero')[0]) {
   initHero();

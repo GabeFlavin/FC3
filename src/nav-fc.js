@@ -1,4 +1,7 @@
 import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+gsap.registerPlugin(ScrollToPlugin);
+
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menuToggle");
     const mainNav = document.getElementById("mainNav");
@@ -6,24 +9,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // GSAP Timeline for menu animation
     const navTimeline = gsap.timeline({ paused: true });
+    const navTimelineOut = gsap.timeline({ paused: true });
 
     // Animation for sliding in the navigation
     navTimeline.to(mainNav, {
         x: "100%", // Slide in from the left
-        duration: 0.5,
-        ease: "power2.out",
+        duration: 1.6,
+        ease: "bounce.out",
+    });
+
+    navTimelineOut.to(mainNav, {
+        x: "-100%", // Slide in from the left
+        duration: .9,
     });
 
     // GSAP Timeline for button animation
     const buttonTimeline = gsap.timeline({ paused: true });
+    const buttonTimelineOut = gsap.timeline({ paused: true });
+
 
     // Animation for transforming the hamburger icon into a close icon
     buttonTimeline.to(
         "#menuToggle", // Top line
         {
             y: 6, // Move down
-            rotate: 45, // Rotate 45 degrees
-            duration: 0.3,
+            rotate: 180, // Rotate 45 degrees
+            duration: .9,
+            ease: "bounce.out",
+        },
+        0
+    );
+
+    buttonTimelineOut.to(
+        "#menuToggle", // Top line
+        {
+            y: 0, // Move down
+            rotate: 0, // Rotate 45 degrees
+            duration: 1,
+            ease: "power3.in",
         },
         0
     );
@@ -32,12 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
     menuToggle.addEventListener("click", function () {
         if (isMenuOpen) {
             // Reverse animations to close the menu and revert the button
-            navTimeline.reverse();
-            buttonTimeline.reverse();
+            navTimelineOut.restart();
+            buttonTimelineOut.restart();
         } else {
             // Play animations to open the menu and transform the button
-            navTimeline.play();
-            buttonTimeline.play();
+            navTimeline.restart();
+            buttonTimeline.restart();
         }
         isMenuOpen = !isMenuOpen; // Toggle state
     });
@@ -64,5 +87,41 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     );
+
+    const startButton = document.querySelector('.start');
+    startButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        const overviewSection = document.getElementById('overview');
+        gsap.to(window, {
+            duration: 1,
+            scrollTo: {
+            y: "#overview",
+            offsetY: 0
+            },
+            ease: "bounce.out"
+        });
+    });
+    // when mainNav a are clicked use gsap to scroll to the section
+    const navLinks = document.querySelectorAll('#mainNav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const targetSection = document.querySelector(this.getAttribute('href'));
+            gsap.to(window, {
+                duration: 1,
+                scrollTo: {
+                    y: targetSection,
+                    offsetY: 0
+                },
+                ease: "bounce.out"
+            });
+            // Close the menu after clicking a link
+            if (isMenuOpen) {
+                navTimelineOut.restart();
+                buttonTimelineOut.restart();
+                isMenuOpen = false;
+            }
+        });
+    });
 
 });
