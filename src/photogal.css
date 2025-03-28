@@ -7,35 +7,6 @@ Photogallery
 
 
 */
-/*
-.drag-container {
-  width: 99vw;
-  height: 100vh;
-  position: relative;
-    overflow: hidden;
-    z-index: 7; 
-}
-
-.dragthumb{
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: top;
-    flex-direction: column;
-    user-select: none;
-    width: 400px;
-    aspect-ratio: 3/3;
-    z-transform-origin: center center; 
-    cursor: grab;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-}
-.dragthumb:active {
-  cursor: grabbing;
-}
-
-*/
 .drag-container {
     position: relative;
     width: 100%;
@@ -45,7 +16,7 @@ Photogallery
     flex-wrap: wrap;
     margin: 0 auto;
     overflow: hidden;
-    z-index:9;
+    z-index: 8;
 }
 
 .dragthumb {
@@ -56,8 +27,8 @@ Photogallery
     transform: translate(0, 0);
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    z-transition: transform 0.2s ease, box-shadow 0.2s ease;
-    z-will-change: transform; /* Optimize for movement */
+    transition: transform 0.2s ease;
+    will-change: transform; /* Optimize for movement */
     transform-style: preserve-3d; /* Hardware acceleration */
 }
 
@@ -70,9 +41,8 @@ Photogallery
 
 .dragging {
     z-index: 100;
-    transform: scale(2.05);
     box-shadow: 0px 128px 96px -96px rgba(0,0,0,0.9) !important;
-    z-transition: none !important; /* Disable transitions during drag */
+    transition: none !important; /* Disable transitions during drag */
 }
 
 .dragthumb.active {
@@ -83,6 +53,23 @@ Photogallery
     z-border: 2px solid #f00;
 }
 
+.float-left-con{
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    width: 80px;
+    cursor: pointer;
+    aspect-ratio: 3/3;
+    display: flex;
+    justify-content: left;
+    align-items: top;
+    z-index: 13;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.float-left-con:hover {
+    opacity: 1;
+}
 
 
 
@@ -153,6 +140,7 @@ Photogallery
 
 .thumbnail-con{
     width: 30%;
+    min-width: 320px; /* Minimum width for the thumbnail container */
     aspect-ratio: 16/9;
     position: relative;
 }

@@ -68,38 +68,43 @@ DRAGGABLE
 
 
 */
-function scatterPhotos() {
+function scatterPhotos(animate = true) {
   const container = document.querySelector('.drag-container');
   const containerWidth = container.offsetWidth;
   const containerHeight = container.offsetHeight;
   const thumbnails = document.querySelectorAll('.dragthumb');
   
-  thumbnails.forEach((thumb, i) => {
+  thumbnails.forEach((thumb) => {
     const maxX = containerWidth - thumb.offsetWidth;
     const maxY = containerHeight - thumb.offsetHeight;
     
-    // Random position within container bounds
     const xPos = Math.random() * maxX;
     const yPos = Math.random() * maxY;
     
-    // Random rotation between -15 and 15 degrees
-    const rotation = Math.random() * 30 - 15;
-    
-    // Set initial position and rotation
-    gsap.set(thumb, {
-      x: xPos,
-      y: yPos,
-      rotation: rotation,
-      zIndex: 0
-    });
-    
-    // Register these positions with Draggable
-    Draggable.get(thumb).update(true); // true = suppress events
+    if (animate) {
+      gsap.to(thumb, {
+        x: xPos,
+        y: yPos,
+        scale: 1,
+        duration: 0.3 + Math.random() * 0.5,
+        ease: "power2.out",
+        onComplete: () => {
+          Draggable.get(thumb).update();
+        }
+      });
+    } else {
+      gsap.set(thumb, {
+        x: xPos,
+        y: yPos,
+        scale: 1
+      });
+      Draggable.get(thumb).update();
+    }
   });
 }
 
 function initDraggable() {
-  // Create Draggable instances first
+  // Create Draggable instances
   Draggable.create(".dragthumb", {
     type: "x,y",
     bounds: ".drag-container",
@@ -109,39 +114,65 @@ function initDraggable() {
     liveSnap: true,
     inertia: false,
     
-    onDrag: function() {
-      this.target.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${this.rotation || 0}deg)`;
-    },
-    
-    onPress: function() {
+    onDragStart: function() {
+      // Scale up when drag starts
+      gsap.to(this.target, {
+        scale: 1.1,
+        duration: 0.15,
+        ease: "power2.out"
+      });
       bringToFront(this.target);
       this.target.classList.add('dragging');
     },
     
-    onRelease: function() {
+    onDrag: function() {
+      this.target.style.transform = `translate(${this.x}px, ${this.y}px) scale(${this.scale || 1.1})`;
+    },
+    
+    onDragEnd: function() {
+      // Smooth scale down when released
       gsap.to(this.target, {
+        scale: 1,
         duration: 0.2,
+        ease: "back.out(1.7)",
         onUpdate: () => {
-          this.target.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${this.rotation || 0}deg)`;
+          this.target.style.transform = `translate(${this.x}px, ${this.y}px) scale(${this.scale || 1})`;
         }
       });
       this.target.classList.remove('dragging');
     }
   });
 
-  // Scatter photos after Draggable is initialized
-  scatterPhotos();
+  // Initial scatter without animation
+  scatterPhotos(false);
 
-  // Track z-index counter
+  // Set up reshuffle button
+  document.getElementById('reshuffle-btn').addEventListener('click', () => {
+    scatterPhotos(true);
+    
+    // Button feedback animation
+    gsap.to("#reshuffle-btn", {
+      scale: 0.8,
+      duration: 0.1,
+      yoyo: true,
+      repeat: 1
+    });
+  });
+
   let zIndexCounter = 10;
   
-  // Click handler
+  function bringToFront(element) {
+    zIndexCounter += 1;
+    element.style.zIndex = zIndexCounter;
+  }
+
+  // Click to bring to front
   document.querySelectorAll('.dragthumb').forEach(thumb => {
     thumb.addEventListener('click', function(e) {
       if (!Draggable.isDragging) {
         bringToFront(this);
         gsap.to(this, {
-          scale: 1.05,
+          scale: 1.1,
           duration: 0.1,
           yoyo: true,
           repeat: 1
@@ -149,11 +180,6 @@ function initDraggable() {
       }
     });
   });
-
-  function bringToFront(element) {
-    zIndexCounter += 1;
-    element.style.zIndex = zIndexCounter;
-  }
 }
 
 if (typeof gsap !== "undefined" && typeof Draggable !== "undefined") {
