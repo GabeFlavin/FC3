@@ -53,67 +53,143 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// DRAGGABLE
+/*
 
-// Initialize for each drag container
-document.querySelectorAll('.drag-container').forEach((container) => {
-    const dragthumbs = container.querySelectorAll('.dragthumb');
-    console.log(`Initializing container with ${dragthumbs.length} thumbnails`);
+
+
+
+
+
+
+DRAGGABLE
+
+
+
+
+
+*/
+function scatterPhotos() {
+  const container = document.querySelector('.drag-container');
+  const containerWidth = container.offsetWidth;
+  const containerHeight = container.offsetHeight;
+  const thumbnails = document.querySelectorAll('.dragthumb');
   
-    // Function to generate random positions within a clustered area
-    function getRandomPosition(index, total) {
-      const containerRect = container.getBoundingClientRect();
-      const containerWidth = containerRect.width;
-      const containerHeight = containerRect.height;
-  
-      const clusterWidth = containerWidth * (0.4 + (total / 20));
-      const clusterHeight = containerHeight * 0.3;
-  
-      const clusterX = (containerWidth - clusterWidth) / 2;
-      const clusterY = 10;
-  
-      const x = Math.floor(Math.random() * clusterWidth) + clusterX;
-      const y = Math.floor(Math.random() * clusterHeight) + clusterY;
-  
-      const xPercent = (x / containerWidth) * 100;
-      const yPercent = (y / containerHeight) * 100;
-  
-      return { x: xPercent, y: yPercent };
+  thumbnails.forEach((thumb, i) => {
+    const maxX = containerWidth - thumb.offsetWidth;
+    const maxY = containerHeight - thumb.offsetHeight;
+    
+    // Random position within container bounds
+    const xPos = Math.random() * maxX;
+    const yPos = Math.random() * maxY;
+    
+    // Random rotation between -15 and 15 degrees
+    const rotation = Math.random() * 30 - 15;
+    
+    // Set initial position and rotation
+    gsap.set(thumb, {
+      x: xPos,
+      y: yPos,
+      rotation: rotation,
+      zIndex: 0
+    });
+    
+    // Register these positions with Draggable
+    Draggable.get(thumb).update(true); // true = suppress events
+  });
+}
+
+function initDraggable() {
+  // Create Draggable instances first
+  Draggable.create(".dragthumb", {
+    type: "x,y",
+    bounds: ".drag-container",
+    edgeResistance: 0.8,
+    minimumMovement: 0,
+    allowNativeTouchScrolling: false,
+    liveSnap: true,
+    inertia: false,
+    
+    onDrag: function() {
+      this.target.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${this.rotation || 0}deg)`;
+    },
+    
+    onPress: function() {
+      bringToFront(this.target);
+      this.target.classList.add('dragging');
+    },
+    
+    onRelease: function() {
+      gsap.to(this.target, {
+        duration: 0.2,
+        onUpdate: () => {
+          this.target.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${this.rotation || 0}deg)`;
+        }
+      });
+      this.target.classList.remove('dragging');
     }
+  });
+
+  // Scatter photos after Draggable is initialized
+  scatterPhotos();
+
+  // Track z-index counter
+  let zIndexCounter = 10;
   
-    // Position all thumbnails in this container
-    dragthumbs.forEach((dragtar, index) => {
-      const { x, y } = getRandomPosition(index, dragthumbs.length);
-      dragtar.style.left = `${x}%`;
-      dragtar.style.top = `${y}%`;
-  
-      let _zIndex = 1;
-      gsap.set(dragtar, { zIndex: _zIndex++ });
-  
-      // Set random rotation
-      const rotation = Math.floor(Math.random() * 30) - 15;
-      dragtar.style.transform = `rotate(${rotation}deg)`;
-  
-      // Click to bring to front
-      dragtar.addEventListener('click', () => {
-        gsap.set(dragtar, { zIndex: ++_zIndex });
-      });
-  
-      // Make draggable with inertia
-      Draggable.create(dragtar, {
-        type: 'x,y',
-        bounds: container, // Bound to this specific container
-        inertia: true,
-        edgeResistance: 0.65,
-        throwResistance: 2000
-      });
+  // Click handler
+  document.querySelectorAll('.dragthumb').forEach(thumb => {
+    thumb.addEventListener('click', function(e) {
+      if (!Draggable.isDragging) {
+        bringToFront(this);
+        gsap.to(this, {
+          scale: 1.05,
+          duration: 0.1,
+          yoyo: true,
+          repeat: 1
+        });
+      }
     });
   });
 
+  function bringToFront(element) {
+    zIndexCounter += 1;
+    element.style.zIndex = zIndexCounter;
+  }
+}
+
+if (typeof gsap !== "undefined" && typeof Draggable !== "undefined") {
+  initDraggable();
+} else {
+  console.error("GSAP or Draggable plugin not loaded!");
+}
 
 
 
-// end of load
+
+
+
+
+
+
+
+
+
+
+/* 
+
+
+
+
+
+
+
+end of load 
+
+
+
+
+
+
+*/
 });
 
 

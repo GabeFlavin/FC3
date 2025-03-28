@@ -1,5 +1,6 @@
 @import url("./nav-fc.css");
 @import url("./photogal.css");
+@import url("./faq.css");
 
 
 *{
@@ -14,6 +15,14 @@
 @font-face{
   font-family: 'BalladofDwightFrye';
   src: url('/fonts/BalladofDwightFrye.ttf')format('truetype');
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+}
+
+@font-face{
+  font-family: 'TopSecret';
+  src: url('/fonts/TopSecret.ttf')format('truetype');
 font-weight:normal;
 font-style:normal;
 font-display:swap;
@@ -45,7 +54,7 @@ font-display:swap;
 
 :root {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
-  font-size: 18px;
+  font-size: var(--p--font-size);
   line-height: 1.5;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -56,11 +65,11 @@ font-display:swap;
   --padding-large: clamp(3.375rem, -0.7543918918918919rem + 11.95945945945946vw, 15.5rem);
   --h6--font-size: clamp(1rem, -0.7432432432432432rem + 1.216216216216218vw, 11.875rem);
   --h5--font-size: clamp(1.2rem, -0.7432432432432432rem + 1.216216216216218vw, 11.875rem);
-  --h4--font-size: clamp(1.3rem, -0.7432432432432432rem + 2.216216216216218vw, 7.875rem);
+  --h4--font-size: clamp(1rem, -0.7432432432432432rem + 2.216216216216218vw, 7.875rem);
   --h3--font-size: clamp(1.9rem, -0.7432432432432432rem + 3.216216216216218vw, 11.875rem);
-  --h2--font-size: clamp(1.19rem, -0.7432432432432432rem + 5.216216216216218vw, 11.875rem);
-  --h1--font-size: clamp(1.5rem, -0.7432432432432432rem + 11.216216216216218vw, 11.875rem);
-  --p--font-size: clamp(1.3rem, -0.6293918918918919rem + 2.1316216216216218vw, 3.275rem);
+  --h2--font-size: clamp(1.9rem, -0.7432432432432432rem + 5.216216216216218vw, 11.875rem);
+  --h1--font-size: clamp(2.2rem, -0.7432432432432432rem + 11.216216216216218vw, 11.875rem);
+  --p--font-size: clamp(1rem, -0.6293918918918919rem + 1.8116216216216218vw, 2.88rem);
 }
 
 /* Hide all content initially */
@@ -260,8 +269,8 @@ p{
 }
 
 .opening-copy{
-  font-size: var(--h4--font-size);
-  line-height: 1.8;
+  font-size: var(--h2--font-size);
+  line-height: 2;
   text-align: center;
   color: #f9f9f9;
   font-family: 'BalladofDwightFrye';
@@ -303,34 +312,46 @@ p{
   z-index: 1;
   width: 80vw;
   height: 67vh;
+  opacity: 1;
+  mix-blend-mode:hard-light;
 }
 
-.title img{
+.title .face{
   width: 100%;
-  height: 47%;
+  height: 40%;
   object-fit: fill;
-} 
+}
+
+.title .crusher{
+  width: 100%;
+  height: 40%;
+  object-fit: fill;
+}
+
+.title .series{
+  width: 100%;
+  height: auto;
+}
 
 a.start {
   position:absolute;
-  bottom: -30px;
+  bottom: 0px;
   right: 0;
   left: 0;
-  color: red;
-  text-decoration: underline;
-  font-size: 1.5rem;
+  color: rgb(243, 19, 19);
+  border-bottom: rgb(243, 19, 19) 4px solid;
+  font-size: var(--h4--font-size);
   transition: color 0.3s ease;
   text-align: center;
   position: relative;
+  font-family: "balladofdwightfrye";
   z-index: 5;
-  z-background: url(/img/backgrounds/button-1.webp) no-repeat center center fixed;
-  z-background-size: stretch;
   margin-top: 1rem;
-  z-padding: 2rem 3rem;
   text-transform: uppercase;
 }
 a.start:hover {
   color: #000000;
+  border-bottom: rgb(0, 0, 0) 4px solid;
 }
 
 
@@ -389,7 +410,7 @@ a.start:hover {
   z-index: 3;
 }
 
-.overview{
+.overview-con{
   display: flex;
   flex-direction: column;
   padding: 5rem 2rem 2rem 2rem;
@@ -397,15 +418,19 @@ a.start:hover {
   width: 80%;
   max-width: 600px;
   position: relative;
-  background-color: #3F1111;
+  background: url(/img/backgrounds/bkg-overview.webp) no-repeat;
+  background-size: cover;
   z-index: 3;
   position: absolute;
-  bottom:5%;
+  bottom:8%;
   left:5%;
+  -webkit-box-shadow: -7px 53px 43px -30px rgba(0,0,0,0.75);
+  -moz-box-shadow: -7px 53px 43px -30px rgba(0,0,0,0.75);
+  box-shadow: -7px 53px 43px -30px rgba(0,0,0,0.75);
   transform: rotate(-4deg);
 }
 
-.overview .float{
+.overview-con .float{
   position: absolute;
   top: -2vw;
   left: 20px;
@@ -413,12 +438,12 @@ a.start:hover {
   z-index: 1; 
 }
 
-.overview .float img{
+.overview-con .float img{
   width: 100%;
   height: auto;
 }
 
-.overview h3{
+.overview-con h3{
   color: #f9f9f9;
   margin-bottom: .8rem;
   font-weight: 700;
@@ -474,6 +499,10 @@ a.start:hover {
   z-index: 3;
 }
 
+.nogap{
+  gap: 0;
+}
+
 .full-screen{
   width: 100vw;
   height: 100vh;
@@ -486,10 +515,13 @@ a.start:hover {
 .section-header{
   margin: 0;
   padding: 0;
+  position: relative;
+  z-index: 15;
+  cursor: pointer;
 }
 
 .section-header h2{
-  color: #dc1b15;
+  color: #f92119;
   margin-bottom: calc(var(--padding-small) * -1);
   line-height: 2;
   font-family: 'BalladofDwightFrye';
@@ -503,8 +535,25 @@ a.start:hover {
   color: #db1912;
 }
 
+.topsecret h4{
+  z-font-family: 'TopSecret';
+  color: #61c8ac;
+  padding:0;
+  margin: 0;
+  line-height: 1;
+}
+.topsecret h2{
+  font-family: 'TopSecret';
+  color: #61c8ac;
+  padding-bottom: var(--padding-small);
+  font-size: var(--h1--font-size);
+  transform: rotate(-3deg);
+}
+
 .image-con{
-    width: 350px;
+    width: 70%;
+    max-width: 22vw;
+    min-width: 250px;
     position: relative;
 }
 
@@ -561,31 +610,37 @@ a.start:hover {
 
 }
 
-.qa-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 3;
-  max-width: 800px;
-}
-.qa-container .qa{
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: left;
-  text-align: left;
-  margin: 0;
-  width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 3;
+/* Mobile */
+@media (max-width: 420px) {
+  .overview-con{
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 1rem 1rem 1rem;
+    max-width: 600px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    background: url(/img/backgrounds/bkg-overview.webp) no-repeat;
+    background-size: cover;
+    z-index: 3;
+    position: absolute;
+    bottom:6%;
+    left:10%;
+    -webkit-box-shadow: -7px 53px 43px -30px rgba(0,0,0,0.75);
+    -moz-box-shadow: -7px 53px 43px -30px rgba(0,0,0,0.75);
+    box-shadow: -7px 53px 43px -30px rgba(0,0,0,0.75);
+    transform: rotate(-4deg);
+  }
 }
 
+/* 
+
+tablet & short windows 
+
+*/
+@media (max-height: 900px) and (min-width: 600px) {
+  
+}
 
 
 

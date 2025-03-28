@@ -13,14 +13,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Animation for sliding in the navigation
     navTimeline.to(mainNav, {
-        x: "100%", // Slide in from the left
-        duration: 1.6,
+        x: "150%", // Slide in from the left
+        duration: 1.9,
         ease: "bounce.out",
     });
 
     navTimelineOut.to(mainNav, {
-        x: "-100%", // Slide in from the left
-        duration: .9,
+        x: "-150%", // Slide in from the left
+        duration: 1.4,
+        ease: "power1.in",
     });
 
     // GSAP Timeline for button animation
@@ -45,14 +46,19 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             y: 0, // Move down
             rotate: 0, // Rotate 45 degrees
-            duration: 1,
-            ease: "power3.in",
+            duration: 1.5,
+            ease: "power1.in",
         },
         0
     );
 
     // Toggle menu and button on click
     menuToggle.addEventListener("click", function () {
+        if (navTimeline.isActive() || navTimelineOut.isActive() || 
+            buttonTimeline.isActive() || buttonTimelineOut.isActive()) {
+            return; // Don't do anything if animations are running
+        }
+
         if (isMenuOpen) {
             // Reverse animations to close the menu and revert the button
             navTimelineOut.restart();
@@ -81,8 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // clicking on mainNav should close the menu
     mainNav.addEventListener("click", function (event) {
         if (isMenuOpen) {
-            navTimeline.reverse();
-            buttonTimeline.reverse();
+            navTimelineOut.restart();
+            buttonTimelineOut.restart();
             isMenuOpen = false;
         }
     }
@@ -93,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         const overviewSection = document.getElementById('overview');
         gsap.to(window, {
-            duration: 1,
+            duration: 1.2,
             scrollTo: {
             y: "#overview",
             offsetY: 0
@@ -108,7 +114,8 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             const targetSection = document.querySelector(this.getAttribute('href'));
             gsap.to(window, {
-                duration: 1,
+                duration: 1.5,
+                delay: .8,
                 scrollTo: {
                     y: targetSection,
                     offsetY: 0
@@ -123,5 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+
 
 });

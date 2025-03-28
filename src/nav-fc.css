@@ -17,7 +17,7 @@ HTML Structure:
 /* Font Size for Navigation */
 :root {
   --nav--padding-small: clamp(1.0375rem, -0.7543918918918919rem + 2.95945945945946vw, 15.5rem);
-  --nav--font-size: clamp(1.5375rem, -0.2293918918918919rem + 5.2405405405405406vw, 3.5rem);
+  --nav--font-size: clamp(1.1rem, -0.2293918918918919rem + 5.2405405405405406vw, 3.5rem);
   --nav--front-font-size: clamp(1rem, -0.2293918918918919rem + 2.2405405405405406vw, 2.7rem);
 }
 
@@ -45,7 +45,7 @@ HTML Structure:
   #mainNav {
     position: fixed;
     top: 0;
-    left: -100%; /* Start off-screen */
+    left: -150%; /* Start off-screen */
     width: 100%;
     height: 100vh;
     background: #710808;
@@ -55,12 +55,18 @@ HTML Structure:
     align-items: center;
     z-index: 995;
     gap: var(--nav--padding-small);
-    transition: left 0.5s ease; /* Fallback for non-GSAP users */
+    transition: left 0.5s ease;
+    background-image: url(/img/backgrounds/nav-bkg.webp);
+    background-size: cover;
+    background-position: center;
+    -webkit-box-shadow: 150px 5px 23px -18px rgba(0,0,0,0.75);
+    -moz-box-shadow: 150px 5px 23px -18px rgba(0,0,0,0.75);
+    box-shadow: 150px 5px 23px -18px rgba(0,0,0,0.75);
   }
   
   #mainNav a {
     font-family: 'BalladofDwightFrye';
-    color: #fff;
+    color: #ff3d3d;
     text-decoration: none;
     font-size: var(--nav--font-size);
     transition: color 0.3s ease;
@@ -68,7 +74,7 @@ HTML Structure:
   }
   
   #mainNav a:hover {
-    color: #ff6347; /* Tomato color */
+    color: #ffa047; /* Tomato color */
   }
 
 

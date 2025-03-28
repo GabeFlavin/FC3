@@ -1,33 +1,97 @@
 
 /*
 
+
+
 Photogallery
 
-*/
 
+*/
+/*
 .drag-container {
   width: 99vw;
   height: 100vh;
   position: relative;
     overflow: hidden;
-    z-index: 10; 
+    z-index: 7; 
 }
+
 .dragthumb{
     position: absolute;
-    cursor: cursor;
-    position: relative;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: top;
     flex-direction: column;
-    width: 300px;
     user-select: none;
+    width: 400px;
     aspect-ratio: 3/3;
+    z-transform-origin: center center; 
+    cursor: grab;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 .dragthumb:active {
   cursor: grabbing;
 }
+
+*/
+.drag-container {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    overflow: hidden;
+    z-index:9;
+}
+
+.dragthumb {
+    position: absolute;
+    width: 400px;
+    aspect-ratio: 3/3;
+    cursor: grab;
+    transform: translate(0, 0);
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-will-change: transform; /* Optimize for movement */
+    transform-style: preserve-3d; /* Hardware acceleration */
+}
+
+.dragthumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.dragging {
+    z-index: 100;
+    transform: scale(2.05);
+    box-shadow: 0px 128px 96px -96px rgba(0,0,0,0.9) !important;
+    z-transition: none !important; /* Disable transitions during drag */
+}
+
+.dragthumb.active {
+    cursor: grabbing;
+}
+
+.dragthumb:hover {
+    z-border: 2px solid #f00;
+}
+
+
+
+
+
+
+
+
+
+
 
 .photo-overlay{
     position: absolute;
@@ -88,8 +152,8 @@ Photogallery
 }
 
 .thumbnail-con{
-    width: 350px;
-    height: 220px;
+    width: 30%;
+    aspect-ratio: 16/9;
     position: relative;
 }
 
@@ -122,6 +186,7 @@ Photogallery
     height: 100%;
     z-index: 2;
 }
+
 .photo-overlay-blood-1 img{
     width: 100%;
     height: 100%;
@@ -146,29 +211,29 @@ Photogallery
 }
 
 .large-image-container {
-  width: 100%;
-  height: 100%;
-  min-height: 100svh;
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 900;
-  background: url('/img/backgrounds/photogal-bkg.webp') no-repeat center center fixed;
-  background-size: cover;
-  opacity: 0;
-  display: none;
-  cursor: pointer;
+    width: 100%;
+    height: 100%;
+    min-height: 100svh;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    background: url('/img/backgrounds/photogal-bkg.webp') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0;
+    display: none;
+    cursor: pointer;
 }
 
 #largeImage {
-  max-width: 80%;
-  max-height: 90%;
-  object-fit: contain;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+    max-width: 80%;
+    max-height: 90%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.5s ease;
     mask-image: url('/img/backgrounds/photo-mask.webp');
     mask-size: 100% 100%;
     -webkit-mask-size: 100% 100%;

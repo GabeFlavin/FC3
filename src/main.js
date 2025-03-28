@@ -5,6 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import jQuery from 'jquery';
 import './photogal.js';
 import './nav-fc.js';
+import './faq.js';
+import './magnetButton.js';
 const $ = jQuery;
 
 
@@ -53,8 +55,7 @@ function initHero() {
   
   // Create timeline for opening animation
   const tl = gsap.timeline({ paused: true });
-  heroVideo.play();
-tl.play();
+  tl.play();
   const splitText = new SplitType('.opening-copy');
   // animation for openingTargetNav
   gsap.set('.start', {scale: 0});
@@ -79,6 +80,7 @@ tl.play();
       document.querySelector('.opening').style.display = 'none';
     }
   })
+  .call(() => heroVideo.play()) // Add video play call here
   .to('.face', {
     scale: 1,
     duration: .5,
@@ -95,7 +97,7 @@ tl.play();
     duration: 1,
     ease: 'power4.out',
   })
-  .to('.hero video', {
+  .to(heroVideo, {
     opacity: 1,
     duration: 2,
     ease: 'power2.out',
@@ -124,24 +126,33 @@ Pause video when out of viewport
 */
 
 function isElementInViewport() {
-  const video = document.querySelector('video');
- 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Video is in the viewport, play it
-          video.play();
+  // Select ALL video elements on the page
+  const videos = document.querySelectorAll('video');
 
-          console.log('playing');
-        } else {
-          // Video is out of the viewport, pause it
-          video.pause();
-          console.log('paused');
-        }
-      });
-    }, { threshold: 0.5 }); // Adjust the threshold as needed
-  
+  // Loop through each video and set up an IntersectionObserver
+  videos.forEach((video) => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Video is in viewport → play it
+            video.play().catch((error) => {
+              console.error('Auto-play failed:', error);
+            });
+            console.log(`Playing video: ${video.src}`);
+          } else {
+            // Video is out of viewport → pause it
+            video.pause();
+            console.log(`Paused video: ${video.src}`);
+          }
+        });
+      },
+      { threshold: 0.5 } // Adjust threshold (0.5 = 50% visibility)
+    );
+
+    // Start observing the current video
     observer.observe(video);
+  });
 }
 if ($('video')[0]) {
   isElementInViewport();
