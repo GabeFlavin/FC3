@@ -17,8 +17,7 @@ HTML Structure:
 /* Font Size for Navigation */
 :root {
   --nav--padding-small: clamp(1.0375rem, -0.7543918918918919rem + 2.95945945945946vw, 15.5rem);
-  --nav--font-size: clamp(1.1rem, -0.2293918918918919rem + 5.2405405405405406vw, 2.7rem);
-  --nav--front-font-size: clamp(1rem, -0.2293918918918919rem + 2.2405405405405406vw, 2.7rem);
+  --nav--font-size: clamp(1.6rem, -0.2293918918918919rem + 5.2405405405405406vw, 2.7rem);
 }
 
 /* Navigation Toggle Button */

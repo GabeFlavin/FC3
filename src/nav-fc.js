@@ -95,20 +95,23 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     const startButton = document.querySelector('.start');
-    startButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        const overviewSection = document.getElementById('overview');
-        gsap.to(window, {
-            duration: 1.2,
-            scrollTo: {
-            y: "#overview",
-            offsetY: 0
-            },
-            ease: "bounce.out"
+    if(startButton){
+    
+        startButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            const overviewSection = document.getElementById('overview');
+            gsap.to(window, {
+                duration: 1.2,
+                scrollTo: {
+                y: "#overview",
+                offsetY: 0
+                },
+                ease: "bounce.out"
+            });
         });
-    });
+    }
     // when mainNav a are clicked use gsap to scroll to the section
-    const navLinks = document.querySelectorAll('#mainNav a');
+    const navLinks = document.querySelectorAll('#mainNav a.navLink');
     navLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();

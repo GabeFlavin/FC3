@@ -43,16 +43,16 @@ if (faqItems.length > 0) {
           tl.to(
             targetArrow,
             {
-              duration: 0.1,
-              opacity: 0
+              duration: 0,
+              display: 'none'
             },
             0,
           );
           tl.to(
             targetArrow2,
             {
-              duration: 0.1,
-              opacity: 1
+              duration: 0,
+              display: 'block'
             },
             0,
           );

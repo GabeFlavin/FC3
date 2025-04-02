@@ -9,6 +9,9 @@ import './faq.js';
 import './magnetButton.js';
 const $ = jQuery;
 
+gsap.registerPlugin(ScrollTrigger);
+
+
 
 
 // Initialize Lenis
@@ -27,8 +30,7 @@ function initHero() {
 
 
   
-  gsap.registerPlugin(ScrollTrigger);
-
+  
   // Update ScrollTrigger when Lenis scrolls
   lenis.on('scroll', ScrollTrigger.update);
 
@@ -58,7 +60,6 @@ function initHero() {
   tl.play();
   const splitText = new SplitType('.opening-copy');
   // animation for openingTargetNav
-  gsap.set('.start', {scale: 0});
   gsap.set('.face', {scale: 0});
   gsap.set('.crusher', {scale: 0});
   gsap.set('.series', {opacity: 0});
@@ -101,12 +102,7 @@ function initHero() {
     opacity: 1,
     duration: 2,
     ease: 'power2.out',
-  })
-  .to('.start', {
-    scale: 1,
-    duration: .9,
-    ease: 'power2.out',
-  },"+=2");
+  });
 }
 if ($('.hero')[0]) {
   initHero();
@@ -165,3 +161,4 @@ if ($('video')[0]) {
 document.addEventListener('DOMContentLoaded', () => {
   initHero();
 });
+

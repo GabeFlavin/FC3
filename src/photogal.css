@@ -21,7 +21,7 @@ Photogallery
 
 .dragthumb {
     position: absolute;
-    width: 400px;
+    width: 300px;
     aspect-ratio: 3/3;
     cursor: grab;
     transform: translate(0, 0);
@@ -31,6 +31,13 @@ Photogallery
     will-change: transform; /* Optimize for movement */
     transform-style: preserve-3d; /* Hardware acceleration */
 }
+
+@media (max-width: 420px) {
+    .dragthumb {
+        width: 180px;
+    }
+}
+
 
 .dragthumb img {
     width: 100%;
@@ -67,8 +74,42 @@ Photogallery
     opacity: 0.7;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
+.float-right-con{
+    position: absolute;
+    top: 10%;
+    right: 3%;
+    cursor: pointer;
+    display: flex;
+    align-items: top;
+    z-index: 13;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.float-left-con img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
 .float-left-con:hover {
     opacity: 1;
+}
+
+@media (max-width: 420px) {
+    .float-left-con {
+        width: 80px;
+        top:auto;
+        bottom: 2%;
+        left: 1%;
+    }
+    .float-right-con{
+        top: 10px;
+        left: 0;
+        right: 0;
+        justify-content: center;
+        text-align: center;
+        content: 'press and drag photos';
+    }
 }
 
 
@@ -95,15 +136,7 @@ Photogallery
     object-fit:fill;
 }
 
-.thumbnail {
-    display: flex;
-    justify-content: center;
-    align-items: top;
-    width: 100%;
-    height: 100%;
-    user-select: none;
-    position: relative;
-}
+
 
 .zoom {
     position: absolute;
@@ -114,10 +147,16 @@ Photogallery
     align-items: center;
     width: 60px;
     height: 60px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(194, 8, 8, 0.928);
     z-index: 10;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+@media (max-width: 420px) {
+    .zoom {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 .bottom{
@@ -131,39 +170,54 @@ Photogallery
 }
 
 .zoom:hover {
-    background-color: rgba(225, 58, 58, 0.8);
+    background-color: rgba(255, 255, 255, 0.679);
 }
 .zoom:hover path{
     fill: black;
     transition: fill 0.3s ease; 
 }
 
+
 .thumbnail-con{
     width: 30%;
-    min-width: 320px; /* Minimum width for the thumbnail container */
-    aspect-ratio: 16/9;
+    height: 100%;
+    min-width: 300px;
     position: relative;
+    background-color: #f00;
 }
 
+.thumbnail {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    position: relative;
+}
+    
 .detail{
     display: flex;
-    justify-content: left;
-    align-items: left;
     flex-direction: column;
-    position: absolute;
-    left: 0;
-    bottom: -20px;
-    z-index: 3;
-    padding: .5rem 1rem;
+    position: relative;
+    padding: .5rem .5rem .5rem .5rem;
     text-align: left;
-    transform: rotate(-4deg);
-    background: url('/img/backgrounds/button-2.webp') no-repeat center center fixed;
-    background-size: stretch;
+    background-color: rgb(11, 11, 11);
 }
 .detail p{
     color: white;
     font-size: 1rem;
     margin: 0;
+}
+
+.detail .social{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    justify-content: left;
+    gap: 0.5rem;
+    align-items: center;
 }
 
 .photo-overlay-blood-1{
@@ -186,11 +240,9 @@ Photogallery
     top: 0;
     object-position: top;
     z-index: 1;
-    vertical-align: bottom;
     max-height: 100%;
-    max-width: 100%;
     width: 100%;
-    height: 100%;
+    aspect-ratio: 16/9;
     object-fit: cover;
     mask-image: url('/img/backgrounds/photo-mask.webp');
     mask-size: 100% 100%;

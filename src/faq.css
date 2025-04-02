@@ -14,45 +14,56 @@
 
 .faq-item {
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: #08323c57;
     margin-bottom: .7rem;
+    align-items: stretch;
 }
 
-.toggle-con{
-    display: flex;
-    position: relative;
-    justify-content: right;
-    font-size: .8rem;
-}
+
 
 .toggle-icon{
-    position: absolute;
-    padding: .5rem 2rem;
-    background: #d00d0d62;
+    background: #e81010;
+    color: #fff;
     text-transform: uppercase;
-    font-family: 'SpecialElite-Regular';
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
 }
 
 .toggle-icon-2{
     display: flex;
-    padding: .5rem 2rem;
-    background: #1a0303;
-    opacity: 0;
+    background: #e81010;
+    display: none;
     text-transform: uppercase;
-    font-family: 'SpecialElite-Regular';
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .faq-question {
     cursor: pointer;
     display: flex;
+    align-items: left;
     justify-content: space-between;
-    align-items: center;
     transition: background 0.3s ease;
+    background-color: #0a2d47;
+    padding: .5rem;
+    text-align: left;
+}
+
+.faq-question div{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
 }
 
 .faq-question h4{
-    font-family: 'SpecialElite-Regular';
+    font-family: 'Courier New', Courier, monospace;
     color: #fff;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
 }
 
 .faq-question:hover {
