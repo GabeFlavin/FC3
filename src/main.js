@@ -161,4 +161,3 @@ if ($('video')[0]) {
 document.addEventListener('DOMContentLoaded', () => {
   initHero();
 });
-

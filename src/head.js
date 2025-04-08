@@ -42,7 +42,7 @@
           }
         });
       }
-    }, 200);
+    }, 100);
   }
   
   // Create the curtain immediately

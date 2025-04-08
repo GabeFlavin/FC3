@@ -28,7 +28,7 @@ function initMagneticButtons() {
         gsap.to(event.currentTarget, 1.5, {
           x: 0,
           y: 0,
-          ease: elastic.out(1,0.3),
+          ease: 'elastic.out(1,0.3)',
         });
         /*
         gsap.to($(this).find(".btn-text"), 1.5, {
@@ -54,7 +54,7 @@ function initMagneticButtons() {
         y: ((event.clientY - bounding.top) / magnetButton.offsetHeight - 0.5) *
           magnetsStrength,
         rotate: "0.001deg",
-        ease: power3.easeOut,
+        ease: 'power3.easeOut',
       });
       /*
       gsap.to($(this).find(".btn-text"), 1.5, {
@@ -71,4 +71,5 @@ function initMagneticButtons() {
     }
   } // END : If screen is bigger as 540 px do magnetic
 }
-//initMagneticButtons();
+
+initMagneticButtons();
