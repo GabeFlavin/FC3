@@ -6,6 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        thorn: resolve(__dirname, 'thornfallsociety.html'),
         fc3: resolve(__dirname, 'facecrusher3.html')
         // Add more pages as needed
       }

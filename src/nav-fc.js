@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Animation for sliding in the navigation
     navTimeline.to(mainNav, {
-        x: "150%", // Slide in from the left
+        x: "-150%", 
         duration: 1.9,
         ease: "bounce.out",
     });
 
     navTimelineOut.to(mainNav, {
-        x: "-150%", // Slide in from the left
+        x: "150%", 
         duration: 1.4,
         ease: "power1.in",
     });
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     buttonTimeline.to(
         "#menuToggle", // Top line
         {
-            y: 6, // Move down
+            y: 0, // Move down
             rotate: 180, // Rotate 45 degrees
             duration: .9,
             ease: "bounce.out",
@@ -111,14 +111,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
     // when mainNav a are clicked use gsap to scroll to the section
-    const navLinks = document.querySelectorAll('#mainNav a.navLink');
+    const navLinks = document.querySelectorAll('a.navLink');
     navLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
             const targetSection = document.querySelector(this.getAttribute('href'));
             gsap.to(window, {
                 duration: 1.5,
-                delay: .8,
+                delay: .5,
                 scrollTo: {
                     y: targetSection,
                     offsetY: 0

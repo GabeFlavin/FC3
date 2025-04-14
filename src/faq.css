@@ -1,4 +1,6 @@
 
+
+
 .faq-container{
     display: flex;
     flex-direction: column;
@@ -9,14 +11,13 @@
     height: auto;
     position: relative;
     z-index: 3;
-    max-width: 900px;
+    max-width: 1100px;
   }
 
 .faq-item {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     background-color: #08323c57;
     margin-bottom: .7rem;
     align-items: stretch;
@@ -30,6 +31,7 @@
     text-transform: uppercase;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
+    padding: 0 .3rem;
 }
 
 .toggle-icon-2{
@@ -38,6 +40,7 @@
     display: none;
     text-transform: uppercase;
     font-weight: 600;
+    padding: 0 .3rem;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -47,37 +50,40 @@
     align-items: left;
     justify-content: space-between;
     transition: background 0.3s ease;
-    background-color: #0a2d47;
-    padding: .5rem;
+    background-color: #dfdacd;
     text-align: left;
 }
 
 .faq-question div{
     display: flex;
-    align-items: center;
-    justify-content: center;    
+    align-items: start;
+    justify-content: start;  
+    padding: .7rem;  
 }
 
 .faq-question h4{
     font-family: 'Courier New', Courier, monospace;
-    color: #fff;
+    font-size: calc(1rem + 0.5vw);
+    color: #000;
     padding: 0;
     margin: 0;
     line-height: 1;
 }
 
 .faq-question:hover {
-    background: #0a2d47c5;
+    background: #ecf83c;
 }
 
 .faq-answer {
     height: 0;
     overflow: hidden;
-    background-color: #08253970;
+    color: #000;
+    background-color: #f5e9d8f9;
 }
 
 .faq-answer p {
-    padding: var(--padding-small);
+    margin: 0;
+    padding: 1rem;
     font-family: 'SpecialElite-Regular';
     text-align: justify;
 }
@@ -87,3 +93,5 @@
     color: #08253970;
 }
 
+
+  

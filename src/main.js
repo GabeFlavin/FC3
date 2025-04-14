@@ -64,6 +64,7 @@ function initHero() {
   gsap.set('.crusher', {scale: 0});
   gsap.set('.series', {opacity: 0});
   gsap.set('.hero video', {opacity: 0});
+  gsap.set('.hero-nav', {opacity: 0});
   tl.from(splitText.words, {
     opacity: 0,
     delay: 3,
@@ -99,6 +100,11 @@ function initHero() {
     ease: 'power4.out',
   })
   .to(heroVideo, {
+    opacity: 1,
+    duration: 2,
+    ease: 'power2.out',
+  })
+  .to('.hero-nav', {
     opacity: 1,
     duration: 2,
     ease: 'power2.out',

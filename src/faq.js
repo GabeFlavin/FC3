@@ -19,7 +19,7 @@ if (faqItems.length > 0) {
           gsap.set(targetDescription, {
             //display: "none",
             height: 0,
-            opacity: .5
+            opacity: 1,
           }, 0);
       
           let tl = gsap.timeline({
@@ -70,4 +70,19 @@ if (faqItems.length > 0) {
       
         });
     
+
+        // add listern to 'invisible-ink' class that turns the background to 'none'
+        const invisibleInk = document.querySelectorAll('.invisible-ink span');
+        invisibleInk.forEach((ink) => {
+          ink.addEventListener('click', function() {
+            gsap.to(ink, {
+              background: 'none',
+              color: 'black',
+              duration: 0.5,
+            });
+          });
+        });
+
+
+
 }

@@ -21,7 +21,7 @@ Photogallery
 
 .dragthumb {
     position: absolute;
-    width: 300px;
+    width: 350px;
     aspect-ratio: 3/3;
     cursor: grab;
     transform: translate(0, 0);
@@ -62,7 +62,7 @@ Photogallery
 
 .float-left-con{
     position: absolute;
-    top: 3%;
+    bottom: 3%;
     left: 3%;
     width: 80px;
     cursor: pointer;
@@ -154,8 +154,8 @@ Photogallery
 }
 @media (max-width: 420px) {
     .zoom {
-        width: 30px;
-        height: 30px;
+        width: 50px;
+        height: 50px;
     }
 }
 
@@ -195,7 +195,13 @@ Photogallery
     user-select: none;
     position: relative;
 }
-    
+
+.thumbnail svg{
+    width: 24px;
+    height: 24px;
+}
+
+
 .detail{
     display: flex;
     flex-direction: column;
@@ -203,10 +209,14 @@ Photogallery
     padding: .5rem .5rem .5rem .5rem;
     text-align: left;
     background-color: rgb(11, 11, 11);
+    line-height: .85rem;
+}
+.detail h4{
+    margin: 0;
+    padding: 0;
 }
 .detail p{
     color: white;
-    font-size: 1rem;
     margin: 0;
 }
 
@@ -218,6 +228,14 @@ Photogallery
     justify-content: left;
     gap: 0.5rem;
     align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.detail .social:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+    opacity: 1;
+    cursor: pointer;
 }
 
 .photo-overlay-blood-1{
