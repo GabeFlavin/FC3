@@ -46,15 +46,23 @@ font-display:swap;
 }
 
 @font-face{
-  font-family: 'BigShoulders-VariableFont_opsz,wght';
-  src: url('/fonts/BigShoulders-VariableFont_opsz,wght.ttf')format('truetype');
+  font-family: 'barlow-condensed-bold';
+  src: url('/fonts/BarlowCondensed-Bold.ttf')format('truetype');
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+}
+
+@font-face{
+  font-family: 'barlow-condensed-black';
+  src: url('/fonts/BarlowCondensed-Black.ttf')format('truetype');
 font-weight:normal;
 font-style:normal;
 font-display:swap;
 }
 
 :root {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
+  font-family: 'barlow-condensed-bold',Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
   font-size: var(--p--font-size);
   line-height: 1.5;
   color-scheme: light dark;
@@ -225,7 +233,7 @@ section {
   height: 100%;
   opacity: 0.2;
   object-fit: cover;
-  object-position: center;
+  object-position: top;
 }
 
 .clear img{
@@ -340,6 +348,7 @@ ul li{
   position: relative;
   z-index: 3;
   gap: var(--padding-small);
+  font-family: 'barlow-condensed-black';
 }
 
 .title{
@@ -566,6 +575,7 @@ ul li{
   -webkit-mask-size: 100% 100%;
   -webkit-mask-image: url('/img/backgrounds/photo-mask.webp');
 }
+
 
 
 .full-screen{
@@ -840,6 +850,7 @@ footer{
 .footer-nav a {
   font-size: .85rem;
   font-weight: 600;
+  font-family: 'barlow-condensed-black';
 }
 
 .legal a{

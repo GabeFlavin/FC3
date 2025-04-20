@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
     buttonTimeline.to(
         "#menuToggle", // Top line
         {
-            y: 0, // Move down
+            //y: 0, // Move down
             rotate: 180, // Rotate 45 degrees
-            duration: .9,
+            duration: .6,
             ease: "bounce.out",
         },
         0
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     buttonTimelineOut.to(
         "#menuToggle", // Top line
         {
-            y: 0, // Move down
+            //y: 0, // Move down
             rotate: 0, // Rotate 45 degrees
             duration: 1.5,
             ease: "power1.in",

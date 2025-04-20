@@ -110,9 +110,6 @@ function initHero() {
     ease: 'power2.out',
   });
 }
-if ($('.hero')[0]) {
-  initHero();
-}
 
  
 
@@ -165,5 +162,7 @@ if ($('video')[0]) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  initHero();
+  if ($('.hero')[0]) {
+    initHero();
+  }
 });

@@ -1,5 +1,7 @@
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
+import jQuery from 'jquery';
+const $ = jQuery;
 
 gsap.registerPlugin(Draggable);
 
@@ -143,8 +145,7 @@ function initDraggable() {
     }
   });
 
-  // Initial scatter without animation
-  scatterPhotos(false);
+  
 
   // Set up reshuffle button
   document.getElementById('reshuffle-btn').addEventListener('click', () => {
@@ -182,11 +183,17 @@ function initDraggable() {
   });
 }
 
-if (typeof gsap !== "undefined" && typeof Draggable !== "undefined") {
+
+
+// Initial scatter without animation
+if ($('.drag-container')[0]) {
+  console.log("Drag container found!");
   initDraggable();
+  scatterPhotos(false);
 } else {
-  console.error("GSAP or Draggable plugin not loaded!");
+  //console.error("Drag container not found!");
 }
+
 
 
 
