@@ -113,7 +113,6 @@ body, html{
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
-  line-height: 1.5;
 }
 .white{
   color: #ffffff;
@@ -165,7 +164,7 @@ section {
   justify-content: center;
   margin: 0;
   width: 100%;
-  min-height: 100svh;
+  z-min-height: 100svh;
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -331,9 +330,8 @@ ul li{
   align-items: center;
   justify-content: center;
   margin: 0;
-  padding: 0;
+  padding: var(--padding-medium);
   width: 100%;
-  max-height: 100vh;
   position: relative;
 }
 
@@ -387,7 +385,6 @@ ul li{
   width: 100%;
   height: auto;
 }
-
 
 .distressed{
   background-image: url(/img/backgrounds/distressed-1.webp);
@@ -523,7 +520,7 @@ ul li{
   height: 100%;
   position: relative;
   z-index: 3;
-  gap:2rem;
+  gap: 2rem;
 }
 
 .content{
@@ -597,7 +594,6 @@ ul li{
 
 .section-header h2{
   color: #f92119;
-  margin-bottom: calc(var(--padding-small) * -1);
   line-height: 2;
   font-family: 'BalladofDwightFrye';
 }
@@ -858,6 +854,30 @@ footer{
   color: inherit;
   text-decoration: underline;
 }
+
+.contribute-con{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 1.2%;
+  top: 2%;
+  z-index: 90;
+  backdrop-filter: blur(8px);
+}
+.contribute-con a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #bb33068f;
+  color: #ffffff;
+  font-size: .85rem;
+  font-weight: 600;
+  font-family: 'barlow-condensed-black';
+}
+
 
 
 /* Mobile */
